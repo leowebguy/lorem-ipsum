@@ -55,3 +55,19 @@ output >> <p class="text-center">lorem ipsum...</p>
 
 output >> <p>lorem ipsum...</p><p>lorem ipsum...</p>
 ```
+
+&nbsp;
+
+### Great for data templating fallback!
+
+```twig
+{% set data = {
+    heading: entry.heading ?? craft.lorem.w(6),
+    copy: entry.copy ?? craft.lorem.w(32)
+} %}
+
+<div>
+  <h2>{{ data.heading }}</h2>
+  <p>{{ data.copy }}</p>
+</div>
+```
