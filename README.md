@@ -35,6 +35,8 @@ The plugin exposes these methods to Twig:
 {{ craft.lorem.p(2) }} >> 2 paragraphs
 ```
 
+&nbsp;
+
 #### Need it wrapped ? Just use Twig `{{ tag }}`
 
 ```twig
