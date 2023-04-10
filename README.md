@@ -48,6 +48,15 @@ The plugin exposes these methods to Twig:
 output >> <p class="text-center">lorem ipsum...</p>
 ```
 
+#### With twig utils
+
+```twig
+craft.lorem.w(10)|title << Uppercases the first character of each word in a string.
+craft.lorem.w(10)|upper << Formats a string into “UPPER CASE”.
+craft.lorem.w(10)|ucfirst << Capitalizes the first character of a string.
+craft.lorem.w(10)|lower << Formats a string into “lower case”.
+```
+
 #### You may also provide a `tag` for `sentences` and `paragraphs`
 
 ```twig
