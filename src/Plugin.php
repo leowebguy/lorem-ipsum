@@ -4,7 +4,7 @@
  *
  * @author     Leo Leoncio
  * @see        https://github.com/leowebguy
- * @copyright  Copyright (c) 2023, leowebguy
+ * @copyright  Copyright (c) 2024, leowebguy
  */
 
 namespace leowebguy\loremipsum;
@@ -17,20 +17,11 @@ use yii\base\Event;
 
 class Plugin extends BasePlugin
 {
-    // Properties
-    // =========================================================================
-
     public bool $hasCpSection = false;
 
     public bool $hasCpSettings = false;
 
-    // Methods
-    // =========================================================================
-
-    /**
-     * @return void
-     */
-    public function init(): void
+    public function init()
     {
         parent::init();
 
