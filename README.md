@@ -57,14 +57,6 @@ craft.lorem.w(10)|ucfirst << Capitalizes the first character of a string.
 craft.lorem.w(10)|lower << Formats a string into “lower case”.
 ```
 
-#### You may also provide a `tag` for `sentences` and `paragraphs`
-
-```twig
-{{ craft.lorem.s(2, 'p') 
-
-output >> <p>lorem ipsum...</p><p>lorem ipsum...</p>
-```
-
 &nbsp;
 
 ### Great for data templating fallback!
@@ -72,7 +64,7 @@ output >> <p>lorem ipsum...</p><p>lorem ipsum...</p>
 ```twig
 {% set data = {
     heading: entry.heading ?? craft.lorem.w(6),
-    copy: entry.copy ?? craft.lorem.w(32)
+    copy: entry.copy ?? craft.lorem.p(1)
 } %}
 
 <div>
