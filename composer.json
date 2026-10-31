@@ -10,19 +10,25 @@
         "extension",
         "utils"
     ],
-    "version": "2.0.0",
+    "version": "2.1.0",
     "type": "craft-plugin",
     "license": "proprietary",
-    "author": {
-        "name": "Leo",
-        "homepage": "https://github.com/leowebguy"
+    "authors": [
+        {
+            "name": "Leo",
+            "homepage": "https://github.com/leowebguy"
+        }
+    ],
+    "support": {
+        "docs": "https://github.com/leowebguy/lorem-ipsum/blob/main/README.md",
+        "issues": "https://github.com/leowebguy/lorem-ipsum/issues"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.2",
-        "craftcms/cms": "^5.0",
-        "joshtronic/php-loremipsum": "^2.1.0"
+        "php": "^8.2 || ^8.3 || ^8.4 || ^8.5",
+        "craftcms/cms": "^5.0.0",
+        "joshtronic/php-loremipsum": "^2.1.0 || ^3.0"
     },
     "require-dev": {
         "craftcms/ecs": "dev-main",
@@ -38,6 +44,9 @@
     "extra": {
         "name": "Lorem Ipsum",
         "handle": "lorem-ipsum",
+        "developer": "Leo",
+        "developerUrl": "https://github.com/leowebguy",
+        "documentationUrl": "https://github.com/leowebguy/lorem-ipsum/blob/main/README.md",
         "class": "leowebguy\\loremipsum\\Plugin"
     },
     "config": {

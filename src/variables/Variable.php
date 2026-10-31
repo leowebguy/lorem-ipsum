@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Lorem Ipsum Generator for Craft
  *
@@ -17,21 +18,33 @@ class Variable
 
     public function __construct()
     {
-        $this->lorem = new LoremIpsum;
+        $this->lorem = new LoremIpsum();
     }
 
-    public function w($count = 5)
+    public function w(int $count = 5): string
     {
-        return $this->lorem->words($count);
+        $words = $this->lorem->words($count);
+
+        return is_string($words) ? $words : '';
     }
 
-    public function s($count = 1, $tag = false)
+    /**
+     * @param string|string[]|bool $tag
+     */
+    public function s(int $count = 1, string|array|bool $tag = false): string
     {
-        return $this->lorem->sentences($count, $tag);
+        $sentences = $this->lorem->sentences($count, $tag);
+
+        return is_string($sentences) ? $sentences : '';
     }
 
-    public function p($count = 1, $tag = false)
+    /**
+     * @param string|string[]|bool $tag
+     */
+    public function p(int $count = 1, string|array|bool $tag = false): string
     {
-        return $this->lorem->paragraphs($count, $tag);
+        $paragraphs = $this->lorem->paragraphs($count, $tag);
+
+        return is_string($paragraphs) ? $paragraphs : '';
     }
 }

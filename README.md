@@ -1,65 +1,80 @@
-## Lorem Ipsum Generator for Craft
+# Lorem Ipsum Generator for Craft CMS
 
-Extending [PHP Lorem Ipsum](https://github.com/joshtronic/php-loremipsum) by @joshtronic
+Extending [PHP Lorem Ipsum](https://github.com/joshtronic/php-loremipsum) by @joshtronic.
 
-### Installation
+Generates placeholder words, sentences, and paragraphs for your Craft CMS templates.
 
-Open your terminal and go to your Craft project:
+## Requirements
+
+This plugin requires:
+- **Craft CMS**: `^5.0.0`
+- **PHP**: `^8.2 || ^8.3 || ^8.4 || ^8.5`
+
+## Installation
+
+Open your terminal, navigate to your Craft project root, and run:
 
 ```bash
-composer require leowebguy/lorem-ipsum -w && php craft plugin/install lorem-ipsum
+composer require leowebguy/lorem-ipsum -w
+php craft plugin/install lorem-ipsum
 ```
 
-### Usage
+## Usage
 
-The plugin exposes these methods to Twig:
+The plugin exposes the `craft.lorem` variable with the following methods:
 
-#### Words
+### Words
 
 ```twig
-{{ craft.lorem.w(1) }} >> 1 word
-{{ craft.lorem.w(5) }} >> 5 words
+{{ craft.lorem.w() }}       {# Default: 5 words #}
+{{ craft.lorem.w(1) }}      {# 1 word #}
+{{ craft.lorem.w(10) }}     {# 10 words #}
 ```
 
-#### Sentences
+### Sentences
 
 ```twig
-{{ craft.lorem.s(1) }} >> 1 sentence
-{{ craft.lorem.s(2) }} >> 2 sentences
+{{ craft.lorem.s() }}           {# Default: 1 sentence #}
+{{ craft.lorem.s(2) }}          {# 2 sentences #}
+{{ craft.lorem.s(1, 'span') }}  {# 1 sentence wrapped in <span> #}
 ```
 
-#### Paragraphs
+### Paragraphs
 
 ```twig
-{{ craft.lorem.p(1) }} >> 1 paragraph
-{{ craft.lorem.p(2) }} >> 2 paragraphs
+{{ craft.lorem.p() }}           {# Default: 1 paragraph #}
+{{ craft.lorem.p(2) }}          {# 2 paragraphs #}
+{{ craft.lorem.p(1, 'p') }}     {# 1 paragraph wrapped in <p> #}
+{{ craft.lorem.p(1, ['p', 'em']) }} {# Wrapped in <p><em>...</em></p> #}
 ```
 
-&nbsp;
+### Wrapping HTML
 
-#### Need it wrapped ? Just use Twig `{{ tag }}`
+Use Craft/Twig's native `tag()` function to safely build elements with attributes:
 
 ```twig
 {{ tag('p', { 
-  text: craft.lorem.w(10), 
-  class: 'text-center' }) 
-}}
+    text: craft.lorem.w(10), 
+    class: 'text-center text-muted' 
+}) }}
 
-output >> <p class="text-center">lorem ipsum...</p>
+{# Output: <p class="text-center text-muted">lorem ipsum dolor sit amet...</p> #}
 ```
 
-#### With twig utils
+### Twig Filters
+
+You can chain native Twig string filters:
 
 ```twig
-craft.lorem.w(10)|title << Uppercases the first character of each word in a string.
-craft.lorem.w(10)|upper << Formats a string into “UPPER CASE”.
-craft.lorem.w(10)|ucfirst << Capitalizes the first character of a string.
-craft.lorem.w(10)|lower << Formats a string into “lower case”.
+{{ craft.lorem.w(10)|title }}   {# Title Case #}
+{{ craft.lorem.w(10)|upper }}   {# UPPER CASE #}
+{{ craft.lorem.w(10)|lower }}   {# lower case #}
+{{ craft.lorem.w(10)|capitalize }} {# Capitalize first word #}
 ```
 
-&nbsp;
+### Fallback Content in Templates
 
-### Great for data templating fallback!
+Ideal for scaffolding layouts before content is entered in the CMS:
 
 ```twig
 {% set data = {
@@ -68,7 +83,7 @@ craft.lorem.w(10)|lower << Formats a string into “lower case”.
 } %}
 
 <div>
-  <h2>{{ data.heading }}</h2>
-  <p>{{ data.copy }}</p>
+    <h2>{{ data.heading }}</h2>
+    <p>{{ data.copy }}</p>
 </div>
 ```

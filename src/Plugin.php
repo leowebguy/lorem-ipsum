@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Lorem Ipsum Generator for Craft
  *
@@ -21,7 +22,7 @@ class Plugin extends BasePlugin
 
     public bool $hasCpSettings = false;
 
-    public function init()
+    public function init(): void
     {
         parent::init();
 
