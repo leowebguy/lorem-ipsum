@@ -1,8 +1,6 @@
 # Lorem Ipsum Generator for Craft CMS
 
-Extending [PHP Lorem Ipsum](https://github.com/joshtronic/php-loremipsum) by @joshtronic.
-
-Generates placeholder words, sentences, and paragraphs for your Craft CMS templates.
+Generates placeholder words, sentences, and paragraphs for your Craft CMS templates with zero external dependencies.
 
 ## Requirements
 

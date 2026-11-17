@@ -10,22 +10,20 @@
 
 namespace leowebguy\loremipsum\variables;
 
-use joshtronic\LoremIpsum;
+use leowebguy\loremipsum\base\Loremipsum;
 
 class Variable
 {
-    private LoremIpsum $lorem;
+    private Loremipsum $lorem;
 
     public function __construct()
     {
-        $this->lorem = new LoremIpsum();
+        $this->lorem = new Loremipsum();
     }
 
     public function w(int $count = 5): string
     {
-        $words = $this->lorem->words($count);
-
-        return is_string($words) ? $words : '';
+        return $this->lorem->words($count);
     }
 
     /**
@@ -33,9 +31,7 @@ class Variable
      */
     public function s(int $count = 1, string|array|bool $tag = false): string
     {
-        $sentences = $this->lorem->sentences($count, $tag);
-
-        return is_string($sentences) ? $sentences : '';
+        return $this->lorem->sentences($count, $tag);
     }
 
     /**
@@ -43,8 +39,6 @@ class Variable
      */
     public function p(int $count = 1, string|array|bool $tag = false): string
     {
-        $paragraphs = $this->lorem->paragraphs($count, $tag);
-
-        return is_string($paragraphs) ? $paragraphs : '';
+        return $this->lorem->paragraphs($count, $tag);
     }
 }
