@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## 2.1.0 - 2026.11.17
+## 2.0.1 - 2026.11.17
 - Added full compatibility with Craft CMS ^5.0.0
 - Added support for PHP ^8.2 || ^8.3 || ^8.4 || ^8.5
 - Inlined and optimized internal Lorem Ipsum generator (`src/base/Loremipsum.php`), removing external dependencies
